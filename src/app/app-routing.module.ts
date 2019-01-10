@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { ElementosComponent } from './pages/elementos/elementos.component';
+import { ElementoComponent } from './pages/elemento/elemento.component';
+
+const routes: Routes = [
+{path: '', component: ElementosComponent },
+{path: 'elemento/:id', component: ElementoComponent },
+{path: '**', component: ElementosComponent }
+];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [ RouterModule.forRoot( routes ) ],
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
